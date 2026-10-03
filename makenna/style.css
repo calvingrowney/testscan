@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #ffffff;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stage {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sig-frame {
+  position: relative;
+  width: min(90vw, 960px);
+  opacity: 0;
+  animation: emerge 5s cubic-bezier(0.19, 1, 0.22, 1) 0.2s forwards;
+}
+
+.signature-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#sig-path {
+  fill: #000;
+}
+
+@keyframes emerge {
+  0% {
+    opacity: 0;
+    filter: blur(14px);
+  }
+  65% {
+    opacity: 0.32;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0.3;
+    filter: blur(0);
+  }
+}
+
+.tagline {
+  margin: -1.5vw 0 0;
+  font-family: "General Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(0.9rem, 1.6vw, 1.125rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #9a9a9a;
+  text-align: center;
+  opacity: 0;
+  animation: fade-in 1.8s ease 1s forwards;
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sig-frame {
+    animation: none;
+    opacity: 0.3;
+  }
+
+  .tagline {
+    animation: none;
+    opacity: 1;
+  }
+}
